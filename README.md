@@ -23,7 +23,7 @@ Deployed prototype uses:
   0x76 :  BNE 280
                  
  This software uses the following code:
- LiuPo fuel gauge by lucadentella http://www.lucadentella.it/en/
+ LiPo fuel gauge by lucadentella http://www.lucadentella.it/en/
  Anemometer code by sbiermann from: https://github.com/sbiermann/esp8266-anemometer
  The Adafruit BME280 library,designed specifically to work with the Adafruit BME280 Breakout
  ESP8266 Arduino from: https://github.com/esp8266/Arduino
