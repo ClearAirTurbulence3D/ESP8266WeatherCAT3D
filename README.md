@@ -35,3 +35,7 @@ Deployed prototype uses:
  adafruit shop
  ----> https://www.adafruit.com/products/1777
  Written by Limor Fried/Ladyada for Adafruit Industries. 
+
+
+reddit post: https://www.reddit.com/r/esp8266/comments/79dmxj/esp8266_weather_station_in_an_acurite_3_in_1/
+imgur album: https://imgur.com/a/ICvYv
