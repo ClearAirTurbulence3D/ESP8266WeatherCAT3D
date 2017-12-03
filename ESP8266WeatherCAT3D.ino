@@ -18,10 +18,11 @@
                       20160221 - V2.2 added two DS18S20 sensors
                       20170901 - V3.0 new hardware for UV, visible and IR detection.
                       20171007 - V3.1 added MAX17043 LiPo fuel gauge monitor. DS18B20s removed.
+                      20171203 - V3.2 Added Wire.begin in setup. Code works without, but best to use it.
   I2C addresses:
   0x36 : LiPo fuel gauge 
   0x60 : SI1145 
-  0x76 :  BNE 280
+  0x76 : BME 280
                  
  This software uses the following code:
  LiuPo fuel gauge by lucadentella http://www.lucadentella.it/en/
@@ -33,8 +34,7 @@
  This is a library for the Si1145 UV/IR/Visible Light Sensor
 
  Designed specifically to work with the Si1145 sensor in the
- adafruit shop
- ----> https://www.adafruit.com/products/1777
+ adafruit shop  ----> https://www.adafruit.com/products/1777
  Written by Limor Fried/Ladyada for Adafruit Industries. 
 
  Adafruit invests time and resources providing this open source code,
@@ -127,7 +127,8 @@ void WindInterrupt()
 
 void setup() 
 {
-  Serial.begin(115200); 
+  Serial.begin(115200);
+  Wire.begin(); //added in 3.2
   batteryMonitor.reset();
   batteryMonitor.quickStart();
   Serial.println(F("ESP8266 Weather Station 3.0"));
