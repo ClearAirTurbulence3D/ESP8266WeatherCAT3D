@@ -19,6 +19,7 @@
                       20170901 - V3.0 new hardware for UV, visible and IR detection.
                       20171007 - V3.1 added MAX17043 LiPo fuel gauge monitor. DS18B20s removed.
                       20171203 - V3.2 Added Wire.begin in setup. Code works without, but best to use it.
+                      20171226 - V3.3 Check attempts to connect to Adafruit IO and does a WDT if it can't connect after 100 tries
   I2C addresses:
   0x36 : LiPo fuel gauge 
   0x60 : SI1145 
@@ -80,6 +81,7 @@ volatile unsigned long last_micros;
 long debouncing_time = 5; //in millis
 volatile unsigned long IntCount = 0;
 char charBuffer[32];
+int AIO_retries = 0;
 
 // Functions
 void connect();
@@ -153,6 +155,11 @@ void setup()
    {
     Serial.print(".");
     delay(500);
+    AIO_retries++;
+    if (AIO_retries >= 100) 
+      {
+        while (1);  // die and wait for the WDT to reset ESP8266
+      }
    }
   // we are connected
   Serial.println();
